@@ -1,5 +1,7 @@
 package com.example.collegeapp.ui.home;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -19,6 +21,7 @@ import com.smarteist.autoimageslider.SliderLayout;
 public class HomeFragment extends Fragment {
 
     private SliderLayout sliderLayout;
+    private ImageView map;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,7 +36,22 @@ public class HomeFragment extends Fragment {
 
         setSliderViews();
 
+        map = view.findViewById(R.id.map);
+        map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMap();
+            }
+        });
+
         return view;
+    }
+
+    private void openMap() {
+        Uri uri = Uri.parse("geo:0, 0?q=Deenbandhu Chottu Ram University Of Science And Technology Murthal");
+        Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+        intent.setPackage("com.google.android.apps.maps");
+        startActivity(intent);
     }
 
     private void setSliderViews() {

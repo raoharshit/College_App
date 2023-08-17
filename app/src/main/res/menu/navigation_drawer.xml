@@ -7,12 +7,12 @@
         android:icon="@drawable/ic_video"/>
 
     <item android:id="@+id/navigation_ebook"
-        android:title="Eboks"
+        android:title="Ebooks"
         android:icon="@drawable/ic_ebook"/>
 
     <item android:id="@+id/navigation_theme"
         android:title="Themes"
-        android:icon="@drawable/ic_theme"/>
+        android:icon="@drawable/ic_color"/>
 
     <item android:id="@+id/navigation_website"
         android:title="Website"
@@ -27,8 +27,12 @@
         android:icon="@drawable/ic_rate"/>
 
     <item android:id="@+id/navigation_developer"
-        android:title="About"
+        android:title="Developers"
         android:icon="@drawable/ic_developer"/>
+
+    <item android:id="@+id/navigation_color"
+        android:title="Color"
+        android:icon="@drawable/ic_color"/>
 
 
 </menu>

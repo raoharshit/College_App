@@ -19,7 +19,10 @@
             <com.smarteist.autoimageslider.SliderLayout
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:id="@+id/slider"/>
+                android:id="@+id/slider">
+
+
+            </com.smarteist.autoimageslider.SliderLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -29,18 +32,18 @@
                 android:textSize="@dimen/title_size"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/textColor"
-                android:fontFamily="@string/bold"/>
+                android:fontFamily="@font/latobold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/about_college"
-                android:layout_marginTop="@dimen/text_margin"
-                android:layout_marginHorizontal="@dimen/text_margin"
-                android:textSize="@dimen/text_size"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="@dimen/text_margin"
+                android:layout_marginTop="@dimen/text_margin"
+                android:fontFamily="@font/latolight"
+                android:text="@string/about_college"
                 android:textColor="@color/textColor"
-                android:fontFamily="@string/light"/>
+                android:textSize="@dimen/text_size" />
 
 
             <LinearLayout
@@ -64,7 +67,7 @@
                         android:textSize="@dimen/title_size"
                         android:layout_gravity="center_horizontal"
                         android:textColor="#fff"
-                        android:fontFamily="@string/bold"/>
+                        android:fontFamily="@font/latobold"/>
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_height="wrap_content"
@@ -81,14 +84,14 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Computer Science"
+                                android:text="Computer Science &amp; Engineering"
                                 android:layout_marginTop="@dimen/text_margin"
                                 android:layout_marginHorizontal="@dimen/text_margin"
                                 android:textSize="@dimen/text_size"
                                 android:layout_margin="8dp"
                                 android:layout_gravity="center_horizontal"
                                 android:textColor="@color/textColor"
-                                android:fontFamily="@string/light"/>
+                                android:fontFamily="@font/latobold"/>
 
                             <View
                                 android:layout_width="match_parent"
@@ -98,14 +101,14 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Computer Science"
+                                android:text="Electronics &amp; Communication Engineering"
                                 android:layout_marginTop="@dimen/text_margin"
                                 android:layout_marginHorizontal="@dimen/text_margin"
                                 android:textSize="@dimen/text_size"
                                 android:layout_margin="8dp"
                                 android:layout_gravity="center_horizontal"
                                 android:textColor="@color/textColor"
-                                android:fontFamily="@string/light"/>
+                                android:fontFamily="@font/latobold"/>
 
                             <View
                                 android:layout_width="match_parent"
@@ -114,16 +117,41 @@
 
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Computer Science"
-                                android:layout_marginTop="@dimen/text_margin"
-                                android:layout_marginHorizontal="@dimen/text_margin"
-                                android:textSize="@dimen/text_size"
-                                android:layout_margin="8dp"
                                 android:layout_gravity="center_horizontal"
+                                android:layout_margin="8dp"
+                                android:layout_marginHorizontal="@dimen/text_margin"
+                                android:layout_marginTop="@dimen/text_margin"
+                                android:fontFamily="@font/latobold"
+                                android:text="Electrical Engineering"
                                 android:textColor="@color/textColor"
-                                android:fontFamily="@string/light"/>
+                                android:textSize="@dimen/text_size" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/grey"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_margin="8dp"
+                                android:layout_marginHorizontal="@dimen/text_margin"
+                                android:layout_marginTop="@dimen/text_margin"
+                                android:fontFamily="@font/latobold"
+                                android:text="Mechanical Engineering"
+                                android:textColor="@color/textColor"
+                                android:textSize="@dimen/text_size" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/grey"/>
+
+
+
 
 
 

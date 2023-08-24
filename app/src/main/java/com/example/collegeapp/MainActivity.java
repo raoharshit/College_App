@@ -17,15 +17,19 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.collegeapp.Authentication.LoginActivity;
 import com.example.collegeapp.ebook.EbookActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.dialog.MaterialDialogs;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
 
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private String selected;
 
     private final String CHECKEDITEM = "checked_item";
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +56,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         sharedPreferences = this.getSharedPreferences("themes", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
+
+        auth = FirebaseAuth.getInstance();
 
         switch (getCheckedItem()){
             case 0:
@@ -87,11 +94,35 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.option_menu,menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(toggle.onOptionsItemSelected(item)){
             return true;
         }
+        if(item.getItemId() == R.id.logout){
+            auth.signOut();
+            openLogin();
+        }
         return true;
+    }
+
+    private void openLogin() {
+        startActivity(new Intent(MainActivity.this, LoginActivity.class));
+        finish();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(auth.getCurrentUser() == null){
+            openLogin();
+        }
     }
 
     @Override
@@ -115,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.navigation_theme:
-                Toast.makeText(this, "theme", Toast.LENGTH_SHORT).show();
+                showDialog();
                 break;
 
             case R.id.navigation_website:
@@ -135,9 +166,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
                 break;
 
-            case R.id.navigation_color:
-                showDialog();
-                break;
 
 
         }

@@ -20,7 +20,9 @@
         Intake for UG programme(Bachelor of Technology) is 60
         Intake for PG programme(Master Of Technology) is 18 &amp; intake for P.H.D programme is based on seats availability.</string>
 
-    <string-array name="theme" >
+    <string name="college_name">Deenbandhu Chhotu Ram University Of Science &amp; Technology</string>
+
+    <string-array name="theme">
         <item>System Default</item>
         <item>Light</item>
         <item>Dark</item>

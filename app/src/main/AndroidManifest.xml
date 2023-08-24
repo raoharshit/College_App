@@ -16,6 +16,23 @@
         android:theme="@style/Theme.CollegeApp"
         tools:targetApi="31">
         <activity
+            android:name=".Authentication.ForgetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Authentication.LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Authentication.RegisterActivity"
+            android:exported="false"
+            android:theme="@style/Theme.LoginActivity"></activity>
+        <activity
             android:name=".FullImageView"
             android:exported="false" />
         <activity
@@ -23,17 +40,11 @@
             android:exported="false" />
         <activity
             android:name=".ebook.EbookActivity"
-            android:parentActivityName=".MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>

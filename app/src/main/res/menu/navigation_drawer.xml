@@ -30,9 +30,5 @@
         android:title="Developers"
         android:icon="@drawable/ic_developer"/>
 
-    <item android:id="@+id/navigation_color"
-        android:title="Color"
-        android:icon="@drawable/ic_color"/>
-
 
 </menu>

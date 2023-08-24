@@ -15,9 +15,12 @@
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/CollegeApp/app/src/main/res/drawable/ic_share.xml" value="0.2265" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/CollegeApp/app/src/main/res/drawable/ic_theme.xml" value="0.2265" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/CollegeApp/app/src/main/res/layout/activity_ebook.xml" value="0.152" />
+        <entry key="..\:/Users/SHALINI/AndroidStudioProjects/CollegeApp/app/src/main/res/layout/activity_forget_password.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/CollegeApp/app/src/main/res/layout/activity_full_image_view.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/SHALINI/AndroidStudioProjects/CollegeApp/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/CollegeApp/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/CollegeApp/app/src/main/res/layout/activity_pdf_viewer.xml" value="0.176" />
+        <entry key="..\:/Users/SHALINI/AndroidStudioProjects/CollegeApp/app/src/main/res/layout/activity_register.xml" value="0.2" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/CollegeApp/app/src/main/res/layout/branch_item_layout.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/CollegeApp/app/src/main/res/layout/drawer_header.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/CollegeApp/app/src/main/res/layout/ebook.xml" value="0.22826086956521738" />
@@ -34,6 +37,7 @@
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/CollegeApp/app/src/main/res/layout/shimmer_for_ebook.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/CollegeApp/app/src/main/res/menu/bottom_nav.xml" value="0.2734375" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/CollegeApp/app/src/main/res/menu/navigation_drawer.xml" value="0.2734375" />
+        <entry key="..\:/Users/SHALINI/AndroidStudioProjects/CollegeApp/app/src/main/res/menu/option_menu.xml" value="0.27447916666666666" />
       </map>
     </option>
   </component>

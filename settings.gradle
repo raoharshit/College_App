@@ -15,4 +15,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "College App"
-include ':app'
+include ':UserApp'
+include ':AdminApp'

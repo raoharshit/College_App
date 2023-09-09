@@ -2,39 +2,45 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:layout_margin="10dp"
+    app:cardBackgroundColor="@color/colorPrimary"
+    app:cardElevation="15dp"
+    app:cardMaxElevation="15dp"
+    app:cardCornerRadius="15dp"
     android:layout_height="wrap_content">
     
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_margin="4dp"
-        android:padding="16dp">
+        android:layout_margin="6dp"
+        android:padding="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:layout_height="wrap_content">
             
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/avatar_profile"/>
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/dcrust_icon"/>
 
 
             <LinearLayout
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_marginLeft="16dp"
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="College App"
-                    android:textSize="18dp"
-                    android:textColor="@color/textColor"/>
+                    android:text="DCRUST"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="16dp"
+                    android:textSize="21sp"
+                    android:fontFamily="@font/poppinsbold"
+                    android:textColor="#fff"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -46,10 +52,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Date :"
-                        app:fontFamily="@string/light"
-                        android:textSize="@dimen/text_size01"
-                        android:textColor="@color/textColor"/>
+                        android:text="Date : "
+                        android:layout_marginTop="7dp"
+                        android:layout_marginLeft="14dp"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size01"/>
 
                     <TextView
                         android:id="@+id/date"
@@ -57,19 +65,22 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="10 August 2023"
-                        app:fontFamily="@string/light"
-                        android:textSize="@dimen/text_size01"
-                        android:textColor="@color/textColor"/>
+                        android:layout_marginTop="7dp"
+                        android:layout_marginLeft="2dp"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size01"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Time : "
-                        android:layout_marginLeft="@dimen/text_margin"
-                        app:fontFamily="@string/light"
-                        android:textSize="@dimen/text_size01"
-                        android:textColor="@color/textColor"/>
+                        android:layout_marginTop="7dp"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size01"/>
 
                     <TextView
                         android:id="@+id/time"
@@ -77,9 +88,11 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="12:00"
-                        app:fontFamily="@string/light"
-                        android:textSize="@dimen/text_size01"
-                        android:textColor="@color/textColor"/>
+                        android:layout_marginTop="7dp"
+                        android:layout_marginLeft="2dp"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size01"/>
                 </LinearLayout>
 
 
@@ -92,10 +105,11 @@
             android:id="@+id/deleteNoticeTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello this is a fbi raid"
-            android:textSize="17dp"
+            android:text="Notice title demo"
+            android:textSize="@dimen/text_size0"
+            android:fontFamily="@font/poppinsemibold"
             android:layout_marginVertical="@dimen/text_margin"
-            android:textColor="@color/textColor"/>
+            android:textColor="@color/white"/>
 
 <!--        <ImageView-->
 <!--            android:id="@+id/deleteNoticeImage"-->
@@ -105,8 +119,8 @@
 
         <com.github.chrisbanes.photoview.PhotoView
             android:id="@+id/deleteNoticeImage"
-            android:layout_width="360dp"
-            android:layout_height="260dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:scaleType="fitXY"/>
 
     </LinearLayout>

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.collegeapp.MainActivity;
 import com.example.collegeapp.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -74,5 +75,11 @@ public class NoticeFragment extends Fragment {
                 Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        ((MainActivity) getActivity()).setActionBarTitle("Notices");
     }
 }

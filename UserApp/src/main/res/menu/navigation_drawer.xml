@@ -1,34 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item android:id="@+id/navigation_website"
+        android:title="Website"
+        android:layout_margin="15dp"
+        android:icon="@drawable/website_icon"/>
 
-    <item android:id="@+id/navigation_video"
-        android:title="Video Lectures"
-        android:icon="@drawable/ic_video"/>
+    <item
+        android:id="@+id/navigation_clubs"
+        android:icon="@drawable/baseline_clubs"
+        android:title="Clubs" />
 
     <item android:id="@+id/navigation_ebook"
         android:title="Ebooks"
-        android:icon="@drawable/ic_ebook"/>
+        android:icon="@drawable/ic_pdf"/>
+
+    <item
+        android:id="@+id/navigation_cgpa"
+        android:icon="@drawable/calc_blue"
+        android:title="GPA Calculator" />
+
+    <item android:id="@+id/navigation_video"
+        android:title="Video Lectures"
+        android:icon="@drawable/video_icon"/>
 
     <item android:id="@+id/navigation_theme"
         android:title="Themes"
         android:icon="@drawable/ic_color"/>
 
-    <item android:id="@+id/navigation_website"
-        android:title="Website"
-        android:icon="@drawable/ic_website"/>
+    <item
+        android:id="@+id/navigation_feeback"
+        android:icon="@drawable/baseline_feedback_24"
+        android:title="Feedback" />
+
 
     <item android:id="@+id/navigation_share"
         android:title="Share"
-        android:icon="@drawable/ic_share"/>
+        android:icon="@drawable/share_icon"/>
 
     <item android:id="@+id/navigation_rate"
         android:title="Rate Us"
-        android:icon="@drawable/ic_rate"/>
+        android:icon="@drawable/rate_icon"/>
 
     <item android:id="@+id/navigation_developer"
         android:title="Developers"
-        android:icon="@drawable/ic_developer"/>
+        android:icon="@drawable/android_dev_icon"/>
 
 
 </menu>

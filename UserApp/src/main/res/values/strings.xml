@@ -20,7 +20,29 @@
         Intake for UG programme(Bachelor of Technology) is 60
         Intake for PG programme(Master Of Technology) is 18 &amp; intake for P.H.D programme is based on seats availability.</string>
 
-    <string name="college_name">Deenbandhu Chhotu Ram University Of Science &amp; Technology</string>
+    <string name="college_name">Deenbandhu Chhotu Ram University Of Science &amp; Technology, Murthal</string>
+    <string name="clg_address">Address:- DCRUST, Murthal, Sonipat, Haryana, India - 131039</string>
+    <string name="contact_no">0130-2484173</string>
+    <string name="mail_link">mailto:info@dcrustm.org</string>
+    <string name="linkedin_link">https://www.linkedin.com/school/cse-dcrust</string>
+    <string name="twitter_link">https://twitter.com/MurthalDcrust</string>
+
+    <string name="cse">Computer Science &amp; Engineering</string>
+    <string name="ece">Electronics &amp; Communication Engineering</string>
+    <string name="elec">Electrical Engineering</string>
+    <string name="mech">Mechanical Engineering</string>
+    <string name="civil">Civil Engineering</string>
+    <string name="biomed">Biomedical Engineering</string>
+    <string name="chemical">Chemical Engineering</string>
+    <string name="archi">Architecture</string>
+    <string name="chem">Chemistry</string>
+    <string name="physics">Physics</string>
+    <string name="maths">Maths</string>
+    <string name="biotech">Biotechnology</string>
+    <string name="cease">Enviromental</string>
+    <string name="management">Management</string>
+    <string name="humanities">Humanities</string>
+    <string name="dcrust_website_link">https://www.dcrustm.ac.in/</string>
 
     <string-array name="theme">
         <item>System Default</item>

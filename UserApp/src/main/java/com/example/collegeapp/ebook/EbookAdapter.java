@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.collegeapp.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EbookAdapter extends RecyclerView.Adapter<EbookAdapter.EbookViewHolder> {
@@ -33,6 +34,11 @@ public class EbookAdapter extends RecyclerView.Adapter<EbookAdapter.EbookViewHol
     public EbookViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.ebook_item_layout,parent,false);
         return new EbookViewHolder(view);
+    }
+
+    public void FilteredList(ArrayList<EbookData> filterList) {
+        list = filterList;
+        notifyDataSetChanged();
     }
 
     @Override

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -42,6 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText regName,regEmail,regPassword;
     private Button register;
     private String name,email,password;
+    private ProgressDialog progressDialog;
 
     private FirebaseAuth auth;
     private DatabaseReference reference;
@@ -103,6 +105,13 @@ public class RegisterActivity extends AppCompatActivity {
         finish();
     }
 
+    private void setProgressDialog() {
+        progressDialog = new ProgressDialog(RegisterActivity.this);
+        progressDialog.setMessage("Loading...");
+        progressDialog.setTitle("Please Wait");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+    }
+
     private void validateData() {
         name = regName.getText().toString();
         email = regEmail.getText().toString();
@@ -120,6 +129,9 @@ public class RegisterActivity extends AppCompatActivity {
         }else if(imagePath == null){
             Toast.makeText(this, "Please choose a profile pic.", Toast.LENGTH_SHORT).show();
         }else{
+            setProgressDialog();
+            progressDialog.show();
+            progressDialog.setCancelable(false);
             createUser();
         }
     }
@@ -131,6 +143,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if(task.isSuccessful()){
                     sendEmailVerification();
                 }else{
+                    progressDialog.dismiss();
                     Toast.makeText(RegisterActivity.this, "Error : " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
@@ -148,6 +161,7 @@ public class RegisterActivity extends AppCompatActivity {
                     if (task.isSuccessful()){
                         uploadData();
                     }else{
+                        progressDialog.dismiss();
                         Toast.makeText(RegisterActivity.this, "Verification mail has not been sent.", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -170,15 +184,18 @@ public class RegisterActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
+                                progressDialog.dismiss();
                                 Toast.makeText(RegisterActivity.this, "Successfully Registered,Verification mail sent!", Toast.LENGTH_SHORT).show();
                                 auth.signOut();
-                                openMain();
+                                openLogin();
                             }else{
+                                progressDialog.dismiss();
                                 Toast.makeText(RegisterActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
                 }else{
+                    progressDialog.dismiss();
                     Toast.makeText(RegisterActivity.this, "Error: "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
@@ -208,8 +225,5 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 
-    private void openMain() {
-        startActivity(new Intent(RegisterActivity.this, MainActivity.class));
-        finish();
-    }
+
 }

@@ -1,27 +1,43 @@
 package com.example.collegeapp.ui.home;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.example.collegeapp.MainActivity;
 import com.example.collegeapp.R;
+import com.example.collegeapp.ui.about.BranchAdapter;
 import com.smarteist.autoimageslider.DefaultSliderView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderLayout;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class HomeFragment extends Fragment {
 
     private SliderLayout sliderLayout;
     private ImageView map;
+    private Uri uri;
+    private ViewPager viewPager;
+    private DepartmentAdapter departmentAdapter;
+    private List<DepartmentModel> list;
+    private ImageView contactView,mailView;
+    private CircleImageView linkedinView,twitterView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,10 +45,81 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_home, container, false);
 
+        contactView = view.findViewById(R.id.phone);
+        mailView = view.findViewById(R.id.gmail);
+        linkedinView = view.findViewById(R.id.linkedin);
+        twitterView = view.findViewById(R.id.twitter);
+
+        contactView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + getString(R.string.contact_no)));
+                startActivity(intent);
+            }
+        });
+
+        mailView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uri = Uri.parse(getString(R.string.mail_link));
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
+        linkedinView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uri = Uri.parse(getString(R.string.linkedin_link));
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
+        twitterView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uri = Uri.parse(getString(R.string.twitter_link));
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
+        list = new ArrayList<>();
+
+
+        list.add(new DepartmentModel(R.drawable.ic_comp, getResources().getString(R.string.cse)));
+        list.add(new DepartmentModel(R.drawable.ic_ece, getResources().getString(R.string.ece)));
+        list.add(new DepartmentModel(R.drawable.ic_elec, getResources().getString(R.string.elec)));
+        list.add(new DepartmentModel(R.drawable.ic_mech, getResources().getString(R.string.mech)));
+        list.add(new DepartmentModel(R.drawable.ic_civil, getResources().getString(R.string.civil)));
+        list.add(new DepartmentModel(R.drawable.ic_biomed, getResources().getString(R.string.biomed)));
+        list.add(new DepartmentModel(R.drawable.ic_chemical, getResources().getString(R.string.chemical)));
+        list.add(new DepartmentModel(R.drawable.ic_archi, getResources().getString(R.string.archi)));
+
+        list.add(new DepartmentModel(R.drawable.ic_chemistry, getResources().getString(R.string.chem)));
+        list.add(new DepartmentModel(R.drawable.ic_physics, getResources().getString(R.string.physics)));
+
+        list.add(new DepartmentModel(R.drawable.ic_maths, getResources().getString(R.string.maths)));
+        list.add(new DepartmentModel(R.drawable.ic_biotech, getResources().getString(R.string.biotech)));
+        list.add(new DepartmentModel(R.drawable.ic_environment, getResources().getString(R.string.cease)));
+        list.add(new DepartmentModel(R.drawable.ic_management, getResources().getString(R.string.management)));
+        list.add(new DepartmentModel(R.drawable.ic_management, getResources().getString(R.string.humanities)));
+
+        // adapter
+        departmentAdapter = new DepartmentAdapter(getContext(), list);
+        // viewpager initialisation
+        viewPager = view.findViewById(R.id.viewpager);
+
+        //setting adapter in viewpager
+        viewPager.setAdapter(departmentAdapter);
+        viewPager.setPageMargin(getResources().getDimensionPixelOffset(R.dimen.viewpager_margin));
+
         sliderLayout = view.findViewById(R.id.slider);
         sliderLayout.setIndicatorAnimation(IndicatorAnimations.FILL);
         sliderLayout.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
-        sliderLayout.setScrollTimeInSec(1);
+        sliderLayout.setScrollTimeInSec(2);
 
         setSliderViews();
 
@@ -86,5 +173,10 @@ public class HomeFragment extends Fragment {
 
               sliderLayout.addSliderView(sliderView);
         }
+    }
+
+    public void onResume(){
+        super.onResume();
+        ((MainActivity) getActivity()).setActionBarTitle("Dashboard");
     }
 }

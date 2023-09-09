@@ -9,6 +9,5 @@
     <dimen name="title_size">22sp</dimen>
     <dimen name="title_size2">20sp</dimen>
     <dimen name="shimmerItemHeight">90dp</dimen>
-
-
+    <dimen name="viewpager_margin">15dp</dimen>
 </resources>

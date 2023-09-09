@@ -6,6 +6,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
@@ -16,10 +18,16 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -41,6 +49,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
     private NavigationView navigationView;
+
+    public Uri uri;
+
+    ConstraintLayout contentView;
+    static final float END_SCALE = 0.7f;
+    public Toolbar toolbar;
+
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
     private int checkedItem;
@@ -79,17 +94,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         drawerLayout = findViewById(R.id.drawerLayput);
         navigationView = findViewById(R.id.navigation_view);
+        contentView = findViewById(R.id.contentView);
+        toolbar = findViewById(R.id.appbar);
 
         toggle = new ActionBarDrawerToggle(this,drawerLayout,R.string.start,R.string.close);
-
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
+        setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        toolbar.setTitle("Dashboard");
+        toolbar.setTitleTextAppearance(this, R.style.poppins_bold);
 
-        navigationView.setNavigationItemSelectedListener(this);
+        navigation();
+
 
         NavigationUI.setupWithNavController(bottomNavigationView,navController);
+
+        int itemCount = bottomNavigationView.getMenu().size();
+        for (int i = 0; i < itemCount; i++) {
+            MenuItem menuItem = bottomNavigationView.getMenu().getItem(i);
+            SpannableString spannable = new SpannableString(menuItem.getTitle().toString());
+            spannable.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.titleBarColor)), 0, spannable.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            menuItem.setTitle(spannable);
+        }
 
     }
 
@@ -97,6 +125,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.option_menu,menu);
+
         return true;
     }
 
@@ -125,6 +154,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    private void navigation() {
+        navigationView.bringToFront();
+        navigationView.setNavigationItemSelectedListener(this);
+
+        animateNavigationView();
+    }
+
+    private void animateNavigationView() {
+        //Add any color or remove it to use the default one!
+        //To make it transparent use Color.Transparent in side setScrimColor();
+        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                // Scale the View based on current slide offset
+                final float diffScaledOffset = slideOffset * (1 - END_SCALE);
+                final float offsetScale = 1 - diffScaledOffset;
+                contentView.setScaleX(offsetScale);
+                contentView.setScaleY(offsetScale);
+                // Translate the View, accounting for the scaled width
+                final float xOffset = drawerView.getWidth() * slideOffset;
+                final float xOffsetDiff = contentView.getWidth() * diffScaledOffset / 2;
+                final float xTranslation = xOffset - xOffsetDiff;
+                contentView.setTranslationX(xTranslation);
+            }
+        });
+    }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
@@ -150,7 +206,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.navigation_website:
-                Toast.makeText(this, "Website", Toast.LENGTH_SHORT).show();
+                uri = Uri.parse(getString(R.string.dcrust_website_link));
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
                 break;
 
             case R.id.navigation_share:
@@ -185,7 +243,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         String[] themes = this.getResources().getStringArray(R.array.theme);
 
-        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this,R.style.AlertDialog);
         builder.setTitle("Select Theme");
         builder.setSingleChoiceItems(R.array.theme, getCheckedItem(), new DialogInterface.OnClickListener() {
             @Override
@@ -239,5 +297,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }else{
             super.onBackPressed();
         }
+    }
+
+    public void setActionBarTitle(String title) {
+        getSupportActionBar().setTitle(title);
     }
 }

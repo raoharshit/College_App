@@ -2,11 +2,16 @@ package com.example.collegeapp.ebook;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.collegeapp.R;
@@ -19,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class EbookActivity extends AppCompatActivity {
@@ -29,18 +35,28 @@ public class EbookActivity extends AppCompatActivity {
     private EbookAdapter adapter;
     private ShimmerFrameLayout shimmerLoadingView;
 
+    private LinearLayout shimmerLinearLayout;
+    private EditText pdf_search;
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ebook);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Ebooks");
+        toolbar = findViewById(R.id.appbarEB);
+
+        setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        toolbar.setTitle("E-books");
+        toolbar.setTitleTextAppearance(this, R.style.poppins_bold);
 
         ebookRecycler = findViewById(R.id.ebookRecycler);
         reference = FirebaseDatabase.getInstance().getReference().child("pdf");
+        reference.keepSynced(true);
         shimmerLoadingView = findViewById(R.id.shimmerLoadingView);
-
+        shimmerLinearLayout = findViewById(R.id.shimmerLinearLayout);
+        pdf_search = findViewById(R.id.pdf_search);
 
 
         getData();
@@ -60,7 +76,8 @@ public class EbookActivity extends AppCompatActivity {
                 ebookRecycler.setLayoutManager(new LinearLayoutManager(EbookActivity.this));
                 ebookRecycler.setAdapter(adapter);
                 shimmerLoadingView.stopShimmer();
-                shimmerLoadingView.setVisibility(View.GONE);
+                shimmerLinearLayout.setVisibility(View.GONE);
+                pdf_search.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -68,6 +85,34 @@ public class EbookActivity extends AppCompatActivity {
                 Toast.makeText(EbookActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        pdf_search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                filter(editable.toString());
+            }
+        });
+    }
+
+    private void filter(String text){
+        ArrayList<EbookData> filterList = new ArrayList<>();
+        for (EbookData item : list){
+            if (item.getPdfTitle().toLowerCase().contains(text.toLowerCase())){
+                filterList.add(item);
+            }
+        }
+        adapter.FilteredList(filterList);
+
     }
 
     @Override
@@ -80,6 +125,12 @@ public class EbookActivity extends AppCompatActivity {
     protected void onPause() {
         shimmerLoadingView.stopShimmer();
         super.onPause();
+    }
+
+    @Override
+    protected void onRestart() {
+        shimmerLoadingView.startShimmer();
+        super.onRestart();
     }
 
 }

@@ -11,9 +11,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.admincollegeapp.R;
@@ -37,6 +40,9 @@ public class UpdateTeacherActivity extends AppCompatActivity {
     private ImageView updateTeacherImage;
     private EditText updateTeacherName,updateTeacherEmail,updateTeacherPost;
     private Button updateTeacherBtn,deleteTeacherBtn;
+    private Spinner updateTeacherCategory;
+
+    private ArrayAdapter<String> adapter;
 
     private String name,email,post,image;
 
@@ -67,11 +73,14 @@ public class UpdateTeacherActivity extends AppCompatActivity {
         updateTeacherPost = findViewById(R.id.updateTeacherPost);
         updateTeacherBtn = findViewById(R.id.updateTeacherBtn);
         deleteTeacherBtn = findViewById(R.id.deleteTeacherBtn);
+        updateTeacherCategory = findViewById(R.id.updateTeacherCategory);
+
+
 
         pd = new ProgressDialog(this);
 
 
-        reference = FirebaseDatabase.getInstance("https://my-college-app-32d40-default-rtdb.asia-southeast1.firebasedatabase.app").getReference().child("faculty");
+        reference = FirebaseDatabase.getInstance("https://my-college-app-32d40-default-rtdb.asia-southeast1.firebasedatabase.app").getReference();
         storageReference = FirebaseStorage.getInstance().getReference();
 
 
@@ -84,6 +93,25 @@ public class UpdateTeacherActivity extends AppCompatActivity {
         updateTeacherName.setText(name);
         updateTeacherEmail.setText(email);
         updateTeacherPost.setText(post);
+
+        String[] items = new String[]{"Select Category",getString(R.string.cse),getString(R.string.ece), getString(R.string.elec),getString(R.string.mech),getString(R.string.civil),getString(R.string.biomed),getString(R.string.chemical),getString(R.string.archi),getString(R.string.chem),getString(R.string.physics),getString(R.string.maths),getString(R.string.biotech),getString(R.string.cease),getString(R.string.management),getString(R.string.humanities)};
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,items);
+        updateTeacherCategory.setAdapter(adapter);
+
+        int position = adapter.getPosition(category);
+        updateTeacherCategory.setSelection(position);
+
+        updateTeacherCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                category = updateTeacherCategory.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         updateTeacherImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,6 +150,8 @@ public class UpdateTeacherActivity extends AppCompatActivity {
         }else if(post.isEmpty()){
             updateTeacherPost.setError("Empty");
             updateTeacherPost.requestFocus();
+        }else if(category.equals("Select Category")){
+            Toast.makeText(this, "Please select Teacher Category", Toast.LENGTH_SHORT).show();
         }else if(bitmap == null){
             updateData(image);
         }else{
@@ -138,8 +168,9 @@ public class UpdateTeacherActivity extends AppCompatActivity {
         hp.put("post",post);
         hp.put("email",email);
         hp.put("image",s);
+        hp.put("category",category);
 
-        dbRef = reference.child(category);
+        dbRef = reference.child("faculty");
 
         dbRef.child(uniqueKey).updateChildren(hp).addOnSuccessListener(new OnSuccessListener() {
             @Override
@@ -149,6 +180,7 @@ public class UpdateTeacherActivity extends AppCompatActivity {
                 Intent intent = new Intent(UpdateTeacherActivity.this,UpdateFaculty.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                finish();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -197,7 +229,7 @@ public class UpdateTeacherActivity extends AppCompatActivity {
 
 
     private void deleteData() {
-        dbRef = reference.child(category).child(uniqueKey);
+        dbRef = reference.child("faculty").child(uniqueKey);
         dbRef.removeValue()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -206,6 +238,7 @@ public class UpdateTeacherActivity extends AppCompatActivity {
                         Intent intent = new Intent(UpdateTeacherActivity.this,UpdateFaculty.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
+                        finish();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override

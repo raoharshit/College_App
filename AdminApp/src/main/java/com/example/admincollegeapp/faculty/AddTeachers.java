@@ -64,12 +64,12 @@ public class AddTeachers extends AppCompatActivity {
         addTeacherBtn = findViewById(R.id.addTeacherBtn);
         pd = new ProgressDialog(this);
 
-        reference = FirebaseDatabase.getInstance("https://my-college-app-32d40-default-rtdb.asia-southeast1.firebasedatabase.app").getReference().child("faculty");
+        reference = FirebaseDatabase.getInstance("https://my-college-app-32d40-default-rtdb.asia-southeast1.firebasedatabase.app").getReference();
         storageReference = FirebaseStorage.getInstance().getReference();
 
 
 
-        String[] items = new String[]{"Select Category","Computer Science & Engineering","Electronics & Communication Engineering", "Electrical Engineering","Mechanical Engineering"};
+        String[] items = new String[]{"Select Category",getString(R.string.cse),getString(R.string.ece), getString(R.string.elec),getString(R.string.mech),getString(R.string.civil),getString(R.string.biomed),getString(R.string.chemical),getString(R.string.archi),getString(R.string.chem),getString(R.string.physics),getString(R.string.maths),getString(R.string.biotech),getString(R.string.cease),getString(R.string.management),getString(R.string.humanities)};
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,items);
         addTeacherCategory.setAdapter(adapter);
         addTeacherCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -156,10 +156,10 @@ public class AddTeachers extends AppCompatActivity {
     private void insertData() {
         pd.setMessage("Uploading...");
         pd.show();
-        dbRef = reference.child(category);
+        dbRef = reference.child("faculty");
         final String uniqueKey = dbRef.push().getKey();
 
-        TeacherData teacherData = new TeacherData(name,email,post,downloadUrl,uniqueKey);
+        TeacherData teacherData = new TeacherData(name,email,post,downloadUrl,uniqueKey,category);
 
         dbRef.child(uniqueKey).setValue(teacherData).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override

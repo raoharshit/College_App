@@ -7,12 +7,16 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.collegeapp.MainActivity;
 import com.example.collegeapp.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,10 +30,10 @@ import java.util.List;
 
 public class FacultyFragment extends Fragment {
 
-    private RecyclerView csDepartment,eceDepartment,elecDepartment,mechDepartment;
-    private LinearLayout csNoData,eceNoData,elecNoData,mechNoData;
-    private List<TeacherData> list1,list2,list3,list4;
+    private RecyclerView facultyRV;
+    private List<TeacherData> list;
     private TeacherAdapter adapter;
+    private EditText faculty_search;
 
     private DatabaseReference reference,dbRef;
 
@@ -41,47 +45,67 @@ public class FacultyFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_faculty, container, false);
 
-        csDepartment = view.findViewById(R.id.csDepartment);
-        eceDepartment = view.findViewById(R.id.eceDepartment);
-        elecDepartment = view.findViewById(R.id.elecDepartment);
-        mechDepartment = view.findViewById(R.id.mechDepartment);
+        facultyRV = view.findViewById(R.id.facultyListRV);
+        faculty_search = view.findViewById(R.id.faculty_search);
 
-        csNoData = view.findViewById(R.id.csNoData);
-        eceNoData = view.findViewById(R.id.eceNoData);
-        elecNoData = view.findViewById(R.id.elecNoData);
-        mechNoData = view.findViewById(R.id.mechNoData);
-
-        reference = FirebaseDatabase.getInstance("https://my-college-app-32d40-default-rtdb.asia-southeast1.firebasedatabase.app").getReference().child("faculty");
+        reference = FirebaseDatabase.getInstance("https://my-college-app-32d40-default-rtdb.asia-southeast1.firebasedatabase.app").getReference();
 
         csDepartment();
-        eceDepartment();
-        elecDepartment();
-        mechDepartment();
+
+        faculty_search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                filter(editable.toString());
+            }
+        });
 
         return view;
     }
 
+    private void filter(String text) {
+        ArrayList<TeacherData> filterList = new ArrayList<>();
+        for (TeacherData item : list) {
+            if (item.getName().toLowerCase().contains(text.toLowerCase())) {
+                filterList.add(item);
+            }
+
+        }
+        if (filterList.isEmpty()) {
+            Toast.makeText(getContext(), "No data Found", Toast.LENGTH_SHORT).show();
+        } else {
+            adapter.FilteredList(filterList);
+        }
+    }
+
     private void csDepartment(){
-        dbRef = reference.child("Computer Science & Engineering");
+        dbRef = reference.child("faculty");
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                list1 = new ArrayList<>();
+                list = new ArrayList<>();
                 if (!dataSnapshot.exists()){
-                    csNoData.setVisibility(View.VISIBLE);
-                    csDepartment.setVisibility(View.GONE);
+                    facultyRV.setVisibility(View.GONE);
                 }else{
-                    csNoData.setVisibility(View.GONE);
-                    csDepartment.setVisibility(View.VISIBLE);
+                    facultyRV.setVisibility(View.VISIBLE);
 
                     for(DataSnapshot snapshot: dataSnapshot.getChildren()){
                         TeacherData data = snapshot.getValue(TeacherData.class);
-                        list1.add(data);
+                        list.add(data);
                     }
-                    csDepartment.setHasFixedSize(true);
-                    csDepartment.setLayoutManager(new LinearLayoutManager(getContext()));
-                    adapter = new TeacherAdapter(list1,getContext());
-                    csDepartment.setAdapter(adapter);
+                    facultyRV.setHasFixedSize(true);
+                    facultyRV.setLayoutManager(new LinearLayoutManager(getContext()));
+                    adapter = new TeacherAdapter(list,getContext());
+                    facultyRV.setAdapter(adapter);
                 }
             }
 
@@ -92,99 +116,9 @@ public class FacultyFragment extends Fragment {
         });
     }
 
-    private void eceDepartment(){
-        dbRef = reference.child("Electronics & Communication Engineering");
-        dbRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                list2 = new ArrayList<>();
-                if (!dataSnapshot.exists()){
-                    eceNoData.setVisibility(View.VISIBLE);
-                    eceDepartment.setVisibility(View.GONE);
-                }else{
-                    eceNoData.setVisibility(View.GONE);
-                    eceDepartment.setVisibility(View.VISIBLE);
-
-                    for(DataSnapshot snapshot: dataSnapshot.getChildren()){
-                        TeacherData data = snapshot.getValue(TeacherData.class);
-                        list2.add(data);
-                    }
-                    eceDepartment.setHasFixedSize(true);
-                    eceDepartment.setLayoutManager(new LinearLayoutManager(getContext()));
-                    adapter = new TeacherAdapter(list2,getContext());
-                    eceDepartment.setAdapter(adapter);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((MainActivity) getActivity()).setActionBarTitle("Faculty Info");
     }
-
-    private void elecDepartment(){
-        dbRef = reference.child("Electrical Engineering");
-        dbRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                list3 = new ArrayList<>();
-                if (!dataSnapshot.exists()){
-                    elecNoData.setVisibility(View.VISIBLE);
-                    elecDepartment.setVisibility(View.GONE);
-                }else{
-                    elecNoData.setVisibility(View.GONE);
-                    elecDepartment.setVisibility(View.VISIBLE);
-
-                    for(DataSnapshot snapshot: dataSnapshot.getChildren()){
-                        TeacherData data = snapshot.getValue(TeacherData.class);
-                        list3.add(data);
-                    }
-                    elecDepartment.setHasFixedSize(true);
-                    elecDepartment.setLayoutManager(new LinearLayoutManager(getContext()));
-                    adapter = new TeacherAdapter(list3,getContext());
-                    elecDepartment.setAdapter(adapter);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    private void mechDepartment(){
-        dbRef = reference.child("Mechanical Engineering");
-        dbRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                list4 = new ArrayList<>();
-                if (!dataSnapshot.exists()){
-                    mechNoData.setVisibility(View.VISIBLE);
-                    mechDepartment.setVisibility(View.GONE);
-                }else{
-                    mechNoData.setVisibility(View.GONE);
-                    mechDepartment.setVisibility(View.VISIBLE);
-
-                    for(DataSnapshot snapshot: dataSnapshot.getChildren()){
-                        TeacherData data = snapshot.getValue(TeacherData.class);
-                        list4.add(data);
-                    }
-                    mechDepartment.setHasFixedSize(true);
-                    mechDepartment.setLayoutManager(new LinearLayoutManager(getContext()));
-                    adapter = new TeacherAdapter(list4,getContext());
-                    mechDepartment.setAdapter(adapter);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-
-
 }

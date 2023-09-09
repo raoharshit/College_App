@@ -3,12 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    app:cardCornerRadius="15dp"
+    android:backgroundTint="@color/colorPrimary"
+    android:layout_margin="15dp"
+    app:cardElevation="15dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginVertical="5dp"
+        android:padding="3dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,8 +28,9 @@
                 android:layout_height="wrap_content"
                 android:padding="12dp"
                 android:layout_weight="1.5"
+                android:layout_marginTop="1dp"
                 android:orientation="vertical"
-                android:gravity="center_vertical">
+                android:gravity="center_horizontal">
 
 
                 <TextView
@@ -30,42 +38,67 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/teacherName"
                     android:text="Harshit Yadav"
-                    android:textColor="@color/textColor"
-                    android:textSize="18sp"/>
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/poppinsbold"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:id="@+id/teacherPost"
                     android:text="Professor"
-                    android:textColor="@color/textColor"
-                    android:textSize="18sp"/>
+                    android:padding="2dp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/teacherEmail"
+
+                    android:layout_marginTop="5dp"
+                    android:maxLines="2"
+                    android:ellipsize="end"
                     android:text="abc@dcrustm.org"
-                    android:textColor="@color/textColor"
-                    android:textSize="18sp"/>
+                    android:fontFamily="@font/poppinsmedium"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/teacherDepartment"
+
+                    android:layout_marginTop="5dp"
+                    android:text="Computer Science &amp; Engineering"
+                    android:fontFamily="@font/poppinsemibold"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/teacherUpdate"
                     android:text="Update Info"
-                    android:layout_marginVertical="4dp"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+                    android:layout_marginTop="10dp"
+                    app:cornerRadius="20dp"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/black"
+                    android:elevation="10dp"
+                    android:background="@color/black"/>
 
 
 
             </LinearLayout>
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="80dp"
+                android:layout_width="40dp"
                 android:layout_height="120dp"
                 android:id="@+id/teacherImage"
                 android:src="@drawable/avatar_profile"
+                android:layout_marginVertical="16dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="0.5"/>
 

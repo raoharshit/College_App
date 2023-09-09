@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.collegeapp.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -35,6 +36,11 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherV
         return new TeacherViewAdapter(view);
     }
 
+    public void FilteredList(List<TeacherData> filterList) {
+        list = filterList;
+        notifyDataSetChanged();
+    }
+
     @Override
     public void onBindViewHolder(@NonNull TeacherViewAdapter holder, int position) {
 
@@ -42,8 +48,9 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherV
         holder.name.setText(item.getName());
         holder.email.setText(item.getEmail());
         holder.post.setText(item.getPost());
+        holder.teacherDepartment.setText(item.getCategory());
         try {
-            Glide.with(context).load(item.getImage()).placeholder(R.drawable.avatar_profile).into(holder.imageView);
+            Picasso.get().load(item.getImage()).placeholder(R.drawable.avatar_profile).into(holder.imageView);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -58,7 +65,7 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherV
 
     public class TeacherViewAdapter extends RecyclerView.ViewHolder {
 
-        private TextView name,email,post;
+        private TextView name,email,post,teacherDepartment;
         private ImageView imageView;
 
         public TeacherViewAdapter(@NonNull View itemView) {
@@ -67,6 +74,7 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherV
             email = itemView.findViewById(R.id.teacherEmail);
             post = itemView.findViewById(R.id.teacherPost);
             imageView = itemView.findViewById(R.id.teacherImage);
+            teacherDepartment = itemView.findViewById(R.id.teacherDepartment);
         }
     }
 }

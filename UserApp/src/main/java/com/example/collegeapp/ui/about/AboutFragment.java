@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.example.collegeapp.MainActivity;
 import com.example.collegeapp.R;
 
 import java.util.ArrayList;
@@ -44,5 +45,11 @@ public class AboutFragment extends Fragment {
         Glide.with(getContext()).load("https://firebasestorage.googleapis.com/v0/b/my-college-app-32d40.appspot.com/o/college_pictures%2Fdcrust_image.jpg?alt=media&token=82c5fed5-62e0-4266-afa7-1634fe01efce").into(imageView);
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((MainActivity) getActivity()).setActionBarTitle("About Us");
     }
 }

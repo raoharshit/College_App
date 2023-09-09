@@ -1,7 +1,7 @@
 package com.example.collegeapp.ui.faculty;
 
 public class TeacherData {
-    String name,email,post,image,key;
+    String name,email,post,image,key,category;
 
     public TeacherData() {
     }
@@ -46,11 +46,20 @@ public class TeacherData {
         this.key = key;
     }
 
-    public TeacherData(String name, String email, String post, String image, String key) {
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public TeacherData(String name, String email, String post, String image, String key, String category) {
         this.name = name;
         this.email = email;
         this.post = post;
         this.image = image;
         this.key = key;
+        this.category = category;
     }
 }

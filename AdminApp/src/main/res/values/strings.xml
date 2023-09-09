@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Admin College App</string>
+
+    <string name="cse">Computer Science &amp; Engineering</string>
+    <string name="ece">Electronics &amp; Communication Engineering</string>
+    <string name="elec">Electrical Engineering</string>
+    <string name="mech">Mechanical Engineering</string>
+    <string name="civil">Civil Engineering</string>
+    <string name="biomed">Biomedical Engineering</string>
+    <string name="chemical">Chemical Engineering</string>
+    <string name="archi">Architecture</string>
+    <string name="chem">Chemistry</string>
+    <string name="physics">Physics</string>
+    <string name="maths">Maths</string>
+    <string name="biotech">Biotechnology</string>
+    <string name="cease">Enviromental</string>
+    <string name="management">Management</string>
+    <string name="humanities">Humanities</string>
 </resources>

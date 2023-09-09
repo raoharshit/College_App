@@ -22,12 +22,10 @@ import java.util.List;
 public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherViewAdapter> {
     private List<TeacherData> list;
     private Context context;
-    private String category;
 
-    public TeacherAdapter(List<TeacherData> list, Context context,String category) {
+    public TeacherAdapter(List<TeacherData> list, Context context) {
         this.list = list;
         this.context = context;
-        this.category = category;
     }
 
     @NonNull
@@ -44,6 +42,7 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherV
         holder.name.setText(item.getName());
         holder.email.setText(item.getEmail());
         holder.post.setText(item.getPost());
+        holder.department.setText(item.getCategory());
         try {
             Picasso.get().load(item.getImage()).into(holder.imageView);
         } catch (Exception e) {
@@ -59,7 +58,7 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherV
                 intent.putExtra("post",item.getPost());
                 intent.putExtra("image",item.getImage());
                 intent.putExtra("key",item.getKey());
-                intent.putExtra("category",category);
+                intent.putExtra("category",item.getCategory());
                 context.startActivity(intent);
             }
         });
@@ -72,7 +71,7 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherV
 
     public class TeacherViewAdapter extends RecyclerView.ViewHolder {
 
-        private TextView name,email,post;
+        private TextView name,email,post,department;
         private Button update;
         private ImageView imageView;
 
@@ -83,6 +82,7 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherV
             post = itemView.findViewById(R.id.teacherPost);
             imageView = itemView.findViewById(R.id.teacherImage);
             update = itemView.findViewById(R.id.teacherUpdate);
+            department = itemView.findViewById(R.id.teacherDepartment);
         }
     }
 }

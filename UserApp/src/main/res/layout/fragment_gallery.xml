@@ -3,18 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/backgroundCol"
     tools:context=".ui.gallery.GalleryFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/text_margin"
+        android:padding="12sp"
         android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="280dp"
-            android:layout_marginVertical="8dp">
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardElevation="15dp"
+            app:cardMaxElevation="15dp"
+            app:cardCornerRadius="15dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -29,18 +35,19 @@
                     android:layout_marginTop="@dimen/text_margin"
                     android:textSize="@dimen/title_size"
                     android:layout_gravity="center_horizontal"
-                    android:textColor="@color/textColor"
-                    android:fontFamily="@string/bold"/>
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppinsemibold"/>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginVertical="4dp"
-                    android:background="@color/grey"/>
+                    android:background="@color/white"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
                     android:id="@+id/convoRecycler"/>
 
 
@@ -52,8 +59,12 @@
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="280dp"
-            android:layout_marginVertical="8dp">
+            android:layout_marginVertical="8dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardElevation="15dp"
+            app:cardMaxElevation="15dp"
+            app:cardCornerRadius="15dp"
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -68,18 +79,19 @@
                     android:layout_marginTop="@dimen/text_margin"
                     android:textSize="@dimen/title_size"
                     android:layout_gravity="center_horizontal"
-                    android:textColor="@color/textColor"
-                    android:fontFamily="@string/bold"/>
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppinsemibold"/>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginVertical="4dp"
-                    android:background="@color/grey"/>
+                    android:background="@color/white"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
                     android:id="@+id/otherRecycler"/>
 
 

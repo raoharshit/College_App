@@ -8,13 +8,14 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.admincollegeapp.clubs.ClubActivity;
 import com.example.admincollegeapp.faculty.UpdateFaculty;
 import com.example.admincollegeapp.notice.DeleteNoticeActivity;
 import com.example.admincollegeapp.notice.UploadNotice;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    CardView uploadNotice,addGalleryImage,addEbook,faculty,deleteNotice,logout;
+    CardView uploadNotice,addGalleryImage,addEbook,faculty,deleteNotice,clubs,logout;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
     @Override
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         addEbook = findViewById(R.id.addEbook);
         faculty = findViewById(R.id.faculty);
         deleteNotice = findViewById(R.id.deleteNotice);
+        clubs = findViewById(R.id.clubs);
         logout = findViewById(R.id.logout);
 
         uploadNotice.setOnClickListener(this);
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         addEbook.setOnClickListener(this);
         faculty.setOnClickListener(this);
         deleteNotice.setOnClickListener(this);
+        clubs.setOnClickListener(this);
         logout.setOnClickListener(this);
     }
 
@@ -71,6 +74,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.deleteNotice:
                 intent = new Intent(MainActivity.this, DeleteNoticeActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.clubs:
+                intent = new Intent(MainActivity.this, ClubActivity.class);
                 startActivity(intent);
                 break;
             case R.id.logout:

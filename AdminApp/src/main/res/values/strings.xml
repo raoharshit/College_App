@@ -16,4 +16,7 @@
     <string name="cease">Enviromental</string>
     <string name="management">Management</string>
     <string name="humanities">Humanities</string>
+
+    <string name="stuCoord">Student Coordinator :</string>
+    <string name="facCoord">Faculty Coordinator :</string>
 </resources>

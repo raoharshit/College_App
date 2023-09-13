@@ -15,10 +15,87 @@
         -120 for Bachelor Of Technology
         -60 for Bachelor of Computer Applications
         Intake for PG programme(Master Of Technology) is 30 &amp; intake for P.H.D programme is based on seats availability.</string>
+    <string name="about_ece">Department of Electronics &amp; Communication Engineering currently runs four programmes, one of which is UG programme,two are PG programmes and one is P.H.D programme.
+        Intake for UG programme(Bachelor of Technology) is 120
+        Intake for PG programmes are as follows:-
+        -18 for Master Of Technology
+        -18 for Master Of Technology(VLSI Design)
+        Intake for P.H.D programme is based on seats availability.</string>
+
+    <string name="about_elec">Department of Electrical Engineering currently runs five programmes, two of which are UG programmes,two are PG programmes and one is P.H.D programme.
+        Intake for UG programme are as follows:-
+        -60 for Bachelor Of Technology
+        -60 for Bachelor Of Technology(Hindi)
+        Intake for PG programmes are as follows:-
+        -18 for Master Of Technology(Instrumentation &amp; Control)
+        -18 for Master Of Technology(Electric Power System)
+        Intake for P.H.D programme is based on seats availability.</string>
 
     <string name="about_mech">Department of Mechanical Engineering currently runs three programmes, one of which is UG programme,one is PG programme and one is P.H.D programme.
         Intake for UG programme(Bachelor of Technology) is 60
         Intake for PG programme(Master Of Technology) is 18 &amp; intake for P.H.D programme is based on seats availability.</string>
+
+    <string name="about_civil">Department of Civil Engineering currently runs three programmes, one of which is UG programme,one is PG programme and one is P.H.D programme.
+        Intake for UG programme(Bachelor of Technology) is 60
+        Intake for PG programme(Master Of Technology(Highway Engineering)) is 18 &amp; intake for P.H.D programme is based on seats availability.</string>
+
+    <string name="about_biomed">Department of Biomedical Engineering currently runs three programmes, one of which is UG programme,one is PG programme and one is P.H.D programme.
+        Intake for UG programme(Bachelor of Technology) is 60
+        Intake for PG programme(Master Of Technology) is 18 &amp; intake for P.H.D programme is based on seats availability.</string>
+
+    <string name="about_chemical">Department of Chemical Engineering currently runs three programmes, one of which is UG programme,one is PG programme and one is P.H.D programme.
+        Intake for UG programme(Bachelor of Technology) is 60
+        Intake for PG programme(Master Of Technology) is 18 &amp; intake for P.H.D programme is based on seats availability.</string>
+
+    <string name="about_archi">Department of Architecture currently runs five programmes, one of which is UG programme,three are PG programmes and one is P.H.D programme.
+        Intake for UG programme(B.Arch.) is 60.
+        Intake for PG programmes are as follows:-
+        -10 for Master Of Architecture(Sustainable Architecture)
+        -20 for Master Of Planning(Urban &amp; Rural)
+        -18 for Master Of Technology(Construction and Real Estate Management)
+        Intake for P.H.D programme is based on seats availability.</string>
+
+    <string name="about_chemistry">Department of Chemistry currently runs three programmes, one of which is Dual Degree programme,one is PG programme and one is P.H.D programme.
+        Intake for Dual Degree programme(B.Sc.(Hons.)-Chemistry + M.Sc.(Chemistry)) is 60
+        Intake for PG programme(Master Of Science(Chemistry)) is 60 &amp; intake for P.H.D programme is based on seats availability.</string>
+
+    <string name="about_physics">Department of Physics currently runs three programmes, one of which is Dual Degree programme,one is PG programme and one is P.H.D programme.
+        Intake for Dual Degree programme(B.Sc.(Hons.)-Physics + M.Sc.(Physics)) is 60
+        Intake for PG programme(Master Of Science(Physics)) is 60 &amp; intake for P.H.D programme is based on seats availability.</string>
+
+    <string name="about_maths">Department of Maths currently runs three programmes, one of which is Dual Degree programme,one is PG programme and one is P.H.D programme.
+        Intake for Dual Degree programme(B.Sc.(Hons.)-Maths + M.Sc.(Maths)) is 60
+        Intake for PG programme(Master Of Science(Maths)) is 60 &amp; intake for P.H.D programme is based on seats availability.</string>
+
+    <string name="about_biotech">Department of Biotechnology currently runs five programmes, one of which is UG programme,one is Dual Degree programme,two are PG programmes and one is P.H.D programme.
+        Intake for UG programme(B.Tech.) is 60.
+        Intake for Dual Degree programme(B.Sc.(Hons.)-Biotechnology + M.Sc.(Biotechnology)) is 60.
+        Intake for PG programmes are as follows:-
+        -18 for Master Of Technology
+        -30 for Master Of Science(Biotechnology)
+        Intake for P.H.D programme is based on seats availability.</string>
+
+    <string name="about_ceees">Department of CEEES currently runs four programmes, one of which is UG programme,two are PG programmes and one is P.H.D programme.
+        Intake for UG programme(B.Tech.) is 30.
+        Intake for PG programmes are as follows:-
+        -18 for Master Of Technology(Energy and Environment Management)
+        -18 for Master Of Science(Environment Science)
+        Intake for P.H.D programme is based on seats availability.</string>
+
+    <string name="about_management">Department of Management currently runs four programmes, one of which is Dual Degree programme,two are PG programmes and one is P.H.D programme.
+        Intake for Dual Degree programme(BBA + MBA) is 60.
+        Intake for PG programmes are as follows:-
+        -60 for Master Of Business Administration
+        -30 for Master In Hospital Administration
+        Intake for P.H.D programme is based on seats availability.</string>
+
+    <string name="about_humanities">Department of Humanities currently runs five programmes, two of which are certificate programmes,one is Dual Degree programme,one is PG programme and one is P.H.D programme.
+        Intake for Certificate Course In French is 30.
+        Intake for Certificate Course In German is 30.
+        Intake for Dual Degree programme(B.A.(Hons.)-English + M.A.(Biotechnology)) is 60.
+        Intake for PG programme(M.A. English) is 30.
+        Intake for P.H.D programme is based on seats availability.</string>
+
 
     <string name="college_name">Deenbandhu Chhotu Ram University Of Science &amp; Technology, Murthal</string>
     <string name="clg_address">Address:- DCRUST, Murthal, Sonipat, Haryana, India - 131039</string>

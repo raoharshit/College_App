@@ -124,6 +124,15 @@
     <string name="stuCoord">Student Coordinator :</string>
     <string name="facCoord">Faculty Coordinator :</string>
 
+    <array name="Batch">
+        <item>Select Batch</item>
+        <item>2023-27</item>
+        <item>2022-26</item>
+        <item>2021-25</item>
+        <item>2020-24</item>
+        <item>2019-23</item>
+    </array>
+
     <string-array name="theme">
         <item>System Default</item>
         <item>Light</item>

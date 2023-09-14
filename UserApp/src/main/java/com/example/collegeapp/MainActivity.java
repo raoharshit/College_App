@@ -32,6 +32,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.collegeapp.Authentication.LoginActivity;
+import com.example.collegeapp.Feedback.FeedbackActivity;
 import com.example.collegeapp.GPACalculator.GpaCalculator;
 import com.example.collegeapp.clubs.ClubActivity;
 import com.example.collegeapp.ebook.EbookActivity;
@@ -209,6 +210,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.navigation_theme:
                 showDialog();
+                break;
+
+            case R.id.navigation_feedback:
+                startActivity(new Intent(MainActivity.this, FeedbackActivity.class));
                 break;
 
             case R.id.navigation_website:

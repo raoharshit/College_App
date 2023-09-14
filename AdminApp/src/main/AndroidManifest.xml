@@ -17,6 +17,9 @@
         android:theme="@style/Theme.AdminCollegeApp"
         tools:targetApi="31">
         <activity
+            android:name=".clubs.UpdateClubActivity"
+            android:exported="false" />
+        <activity
             android:name=".clubs.AddClubActivity"
             android:exported="false" />
         <activity

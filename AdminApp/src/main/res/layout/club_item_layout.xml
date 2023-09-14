@@ -105,6 +105,18 @@
                     android:fontFamily="@font/poppinsmedium"
                     android:textColor="@color/white"
                     android:textSize="13sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/clubUpdate"
+                    android:text="Update Info"
+                    android:layout_marginTop="10dp"
+                    app:cornerRadius="20dp"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/black"
+                    android:elevation="10dp"
+                    android:background="@color/black"/>
             </LinearLayout>
 
             <de.hdodenhof.circleimageview.CircleImageView

@@ -32,6 +32,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.collegeapp.Authentication.LoginActivity;
+import com.example.collegeapp.clubs.ClubActivity;
 import com.example.collegeapp.ebook.EbookActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -208,6 +209,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.navigation_website:
                 uri = Uri.parse(getString(R.string.dcrust_website_link));
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+                break;
+
+            case R.id.navigation_clubs:
+                intent = new Intent(MainActivity.this, ClubActivity.class);
                 startActivity(intent);
                 break;
 

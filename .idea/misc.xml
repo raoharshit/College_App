@@ -38,14 +38,19 @@
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/CollegeApp/app/src/main/res/menu/bottom_nav.xml" value="0.2734375" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/CollegeApp/app/src/main/res/menu/navigation_drawer.xml" value="0.2734375" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/CollegeApp/app/src/main/res/menu/option_menu.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/AdminApp/src/main/res/drawable/baseline_clubs.xml" value="0.275" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/AdminApp/src/main/res/drawable/circle_green.xml" value="0.2465" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/AdminApp/src/main/res/drawable/circle_pink.xml" value="0.137" />
+        <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/AdminApp/src/main/res/layout/activity_add_club.xml" value="0.2604166666666667" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/AdminApp/src/main/res/layout/activity_add_teachers.xml" value="0.264945652173913" />
+        <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/AdminApp/src/main/res/layout/activity_club.xml" value="0.2604166666666667" />
+        <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/AdminApp/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/AdminApp/src/main/res/layout/activity_update_faculty.xml" value="0.264945652173913" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/AdminApp/src/main/res/layout/activity_update_teacher.xml" value="0.264945652173913" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/AdminApp/src/main/res/layout/activity_upload_image.xml" value="0.264945652173913" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/AdminApp/src/main/res/layout/activity_upload_notice.xml" value="0.264945652173913" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/AdminApp/src/main/res/layout/activity_upload_pdf.xml" value="0.264945652173913" />
+        <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/AdminApp/src/main/res/layout/club_item_layout.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/AdminApp/src/main/res/layout/faculty_item_layout.xml" value="0.2" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/drawable-v24/android_dev_icon.xml" value="0.2465" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/drawable-v24/baseline_clubs.xml" value="0.2465" />
@@ -84,6 +89,7 @@
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/drawable/ic_website.xml" value="0.2465" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/drawable/search_icon.xml" value="0.137" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/drawable/share_icon.xml" value="0.2465" />
+        <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/activity_club.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/activity_ebook.xml" value="0.264945652173913" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/activity_forget_password.xml" value="0.264" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/activity_login.xml" value="0.4" />
@@ -91,7 +97,8 @@
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/activity_pdf_viewer.xml" value="0.264945652173913" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/activity_register.xml" value="0.4" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/activity_splash_screen.xml" value="0.264945652173913" />
-        <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/branch_item_layout.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/branch_item_layout.xml" value="0.264" />
+        <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/club_item_layout.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/custom_menu_item.xml" value="0.264945652173913" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/department_item.xml" value="0.4" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/drawer_header.xml" value="0.264945652173913" />

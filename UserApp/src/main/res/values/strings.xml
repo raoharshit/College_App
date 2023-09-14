@@ -121,6 +121,9 @@
     <string name="humanities">Humanities</string>
     <string name="dcrust_website_link">https://www.dcrustm.ac.in/</string>
 
+    <string name="stuCoord">Student Coordinator :</string>
+    <string name="facCoord">Faculty Coordinator :</string>
+
     <string-array name="theme">
         <item>System Default</item>
         <item>Light</item>

@@ -124,6 +124,14 @@
     <string name="stuCoord">Student Coordinator :</string>
     <string name="facCoord">Faculty Coordinator :</string>
 
+    <string name="intro">Hey! I’m an Android Developer and an undergrad student of DCRUST-Murthal (2020-24). Though I started learning android way back, but the idea of creating DCRUST aroused due to the hassle which I faced in accessing the website and the opportunities I missed. Yet, no worries this problem is now being tackled!</string>
+    <string name="skills">I am eager to apply my skills and knowledge to create innovative and user-friendly mobile applications. With a solid foundation in programming and a passion for technology, I am confident in my ability to create high-quality apps that meet the needs of users.</string>
+    <string name="queries">For any queries, contact me through the following links :</string>
+    <string name="dev_name">Harshit Yadav</string>
+    <string name="gmaillink">mailto:8708440748y@gmail.com</string>
+    <string name="linkedinlink">https://www.linkedin.com/in/harshit-yadav-913081200/</string>
+    <string name="githublink">https://github.com/raoharshit</string>
+
     <array name="Batch">
         <item>Select Batch</item>
         <item>2023-27</item>

@@ -35,7 +35,7 @@
                 android:textSize="20sp"
                 android:layout_gravity="center"
                 android:textColor="@color/white"
-                android:fontFamily="@string/bold"/>
+                android:fontFamily="@font/poppinsbold"/>
 
 
 
@@ -58,7 +58,7 @@
                 android:textSize="16sp"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/textColor"
-                android:fontFamily="@font/latolight"/>
+                android:fontFamily="@font/poppinsbold"/>
 
         </androidx.core.widget.NestedScrollView>
 

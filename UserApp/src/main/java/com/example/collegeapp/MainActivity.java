@@ -32,6 +32,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.collegeapp.Authentication.LoginActivity;
+import com.example.collegeapp.Developers.Developers;
 import com.example.collegeapp.Feedback.FeedbackActivity;
 import com.example.collegeapp.GPACalculator.GpaCalculator;
 import com.example.collegeapp.clubs.ClubActivity;
@@ -189,7 +190,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch(item.getItemId()){
 
             case R.id.navigation_developer:
-                Toast.makeText(this, "Developer", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, Developers.class));
                 break;
 
             case R.id.navigation_video:

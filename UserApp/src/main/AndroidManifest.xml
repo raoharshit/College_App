@@ -16,9 +16,13 @@
         tools:replace="android:label"
         tools:targetApi="31">
         <activity
-            android:name=".Feedback.FeedbackActivity"
+            android:name=".Developers.Developers"
             android:exported="false"
             android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".Feedback.FeedbackActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".GPACalculator.GpaCalculator"
             android:exported="false"

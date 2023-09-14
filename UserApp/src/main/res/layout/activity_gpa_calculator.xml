@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/backgroundCol"
+    tools:context=".GPACalculator.GpaCalculator">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbarCL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/appbarGPA"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/backgroundCol"
+                app:title="GPA Calculator"
+                app:titleTextColor="@color/titleBarColor"
+                style="@style/ToolbarColoredBackArrow"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:layout_below="@id/toolbarCL"
+        android:padding="15dp"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="15dp">
+        <RelativeLayout
+            android:paddingLeft="16dp"
+            android:paddingTop="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/ad_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sub_no"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="18dp"
+                android:layout_marginHorizontal="50dp"
+                android:backgroundTint="#F5F5F8"
+                android:fontFamily="@font/poppinsmedium"
+                android:gravity="center_horizontal"
+                android:onClick="addition"
+                android:text="Add Courses"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="#050000"
+                android:textStyle="bold"
+                app:cornerRadius="15dp" />
+
+            <GridLayout
+                android:id="@+id/linearlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ad_sub"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:useDefaultMargins="true"
+                android:columnCount="3" />
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/sub_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppinsmedium"
+                android:gravity="center_horizontal"
+                android:hint="Enter the number of courses"
+                android:inputType="number"
+                android:maxLength="2"
+                android:background="@drawable/shape_gpacal"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary" />
+
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

@@ -32,6 +32,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.collegeapp.Authentication.LoginActivity;
+import com.example.collegeapp.GPACalculator.GpaCalculator;
 import com.example.collegeapp.clubs.ClubActivity;
 import com.example.collegeapp.ebook.EbookActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -200,6 +201,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.navigation_ebook:
                 startActivity(new Intent(MainActivity.this, EbookActivity.class));
+                break;
+
+            case R.id.navigation_cgpa:
+                startActivity(new Intent(MainActivity.this, GpaCalculator.class));
                 break;
 
             case R.id.navigation_theme:

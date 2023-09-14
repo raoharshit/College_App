@@ -88,10 +88,12 @@
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/drawable/ic_reshot_icon_medical_sign_m6le2qfypd.xml" value="0.2465" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/drawable/ic_website.xml" value="0.2465" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/drawable/search_icon.xml" value="0.137" />
+        <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/drawable/shape_gpacal.xml" value="0.275" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/drawable/share_icon.xml" value="0.2465" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/activity_club.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/activity_ebook.xml" value="0.264945652173913" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/activity_forget_password.xml" value="0.264" />
+        <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/activity_gpa_calculator.xml" value="0.2734375" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/activity_login.xml" value="0.4" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/activity_pdf_viewer.xml" value="0.264945652173913" />
@@ -114,6 +116,7 @@
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/menu_item_layout.xml" value="0.264" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/newsfeed_item_layout.xml" value="0.264945652173913" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/shimmer_for_ebook.xml" value="0.264945652173913" />
+        <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/layout/spinner_list.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/menu/bottom_nav.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/menu/menu_item.xml" value="0.1265625" />
         <entry key="..\:/Users/SHALINI/AndroidStudioProjects/College_App/UserApp/src/main/res/menu/navigation_drawer.xml" value="0.27447916666666666" />

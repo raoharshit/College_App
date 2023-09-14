@@ -193,8 +193,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(MainActivity.this, Developers.class));
                 break;
 
-            case R.id.navigation_video:
-                Toast.makeText(this, "Video", Toast.LENGTH_SHORT).show();
+            case R.id.navigation_library:
+                uri = Uri.parse(getString(R.string.library_link));
+                startActivity(new Intent(Intent.ACTION_VIEW, uri));
                 break;
 
             case R.id.navigation_rate:
@@ -219,13 +220,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.navigation_website:
                 uri = Uri.parse(getString(R.string.dcrust_website_link));
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
+                startActivity(new Intent(Intent.ACTION_VIEW, uri));
                 break;
 
             case R.id.navigation_clubs:
-                intent = new Intent(MainActivity.this, ClubActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(MainActivity.this, ClubActivity.class));
                 break;
 
             case R.id.navigation_share:

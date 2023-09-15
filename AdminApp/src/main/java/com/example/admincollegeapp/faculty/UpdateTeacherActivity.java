@@ -229,11 +229,14 @@ public class UpdateTeacherActivity extends AppCompatActivity {
 
 
     private void deleteData() {
+        pd.setMessage("Deleting...");
+        pd.show();
         dbRef = reference.child("faculty").child(uniqueKey);
         dbRef.removeValue()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
+                        pd.dismiss();
                         Toast.makeText(UpdateTeacherActivity.this, "Teacher Deleted Successfully", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(UpdateTeacherActivity.this,UpdateFaculty.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -243,6 +246,7 @@ public class UpdateTeacherActivity extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        pd.dismiss();
                         Toast.makeText(UpdateTeacherActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
                     }
                 });

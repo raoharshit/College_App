@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -44,6 +45,7 @@ public class AddClubActivity extends AppCompatActivity {
     private String name,facCor,stuCor,contact,downloadUrl="";
 
     private Bitmap bitmap;
+    private ProgressDialog pd;
     private final int REQ = 1;
 
 
@@ -58,6 +60,7 @@ public class AddClubActivity extends AppCompatActivity {
         addContact = findViewById(R.id.addContact);
         addClubImage = findViewById(R.id.addClubImage);
         addClubBtn = findViewById(R.id.addClubBtn);
+        pd = new ProgressDialog(this);
 
         reference = FirebaseDatabase.getInstance("https://my-college-app-32d40-default-rtdb.asia-southeast1.firebasedatabase.app").getReference();
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -121,6 +124,8 @@ public class AddClubActivity extends AppCompatActivity {
     }
 
     private void uploadImage() {
+        pd.setMessage("Uploading...");
+        pd.show();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG,50,baos);
         byte[] finalImg = baos.toByteArray();
@@ -144,6 +149,7 @@ public class AddClubActivity extends AppCompatActivity {
                         }
                     });
                 }else{
+                    pd.dismiss();
                     Toast.makeText(AddClubActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -151,6 +157,8 @@ public class AddClubActivity extends AppCompatActivity {
     }
 
     private void uploadData() {
+        pd.setMessage("Uploading...");
+        pd.show();
         dbRef = reference.child("Clubs");
         final String uniqueKey = dbRef.push().getKey();
 
@@ -159,12 +167,14 @@ public class AddClubActivity extends AppCompatActivity {
         dbRef.child(uniqueKey).setValue(clubData).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
+                pd.dismiss();
                 Toast.makeText(AddClubActivity.this, "Club Added", Toast.LENGTH_SHORT).show();
                 openClubActivity();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
+                pd.dismiss();
                 Toast.makeText(AddClubActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
             }
         });

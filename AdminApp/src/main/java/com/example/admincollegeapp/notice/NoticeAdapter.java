@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.admincollegeapp.R;
 import com.example.admincollegeapp.faculty.UpdateTeacherActivity;
 import com.github.chrisbanes.photoview.PhotoView;
@@ -55,10 +56,12 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.NoticeView
         NoticeData currentItem = list.get(position);
 
         holder.deleteNoticeTitle.setText(currentItem.getTitle());
+        holder.date.setText(currentItem.getDate());
+        holder.time.setText(currentItem.getTime());
 
         try {
             if (currentItem.getImage() != null) {
-                Picasso.get().load(currentItem.getImage()).into(holder.deleteNoticeImage);
+                Glide.with(context).load(currentItem.getImage()).into(holder.deleteNoticeImage);
 
             }
 
@@ -83,7 +86,18 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.NoticeView
                                 imageRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
-                                        Log.d("Notice Info", "Notice deleted!!");
+                                        reference.child(currentItem.getKey()).removeValue()
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    Toast.makeText(context, "Notice Deleted", Toast.LENGTH_SHORT).show();
+                                                }
+                                            }).addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
@@ -92,18 +106,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.NoticeView
                                     }
                                 });
 
-                                reference.child(currentItem.getKey()).removeValue()
-                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                Toast.makeText(context, "Notice Deleted", Toast.LENGTH_SHORT).show();
-                                            }
-                                        }).addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
-                                            }
-                                        });
+
                                 notifyItemRemoved(position);
                             }
                         }
@@ -141,13 +144,15 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.NoticeView
     public class NoticeViewAdapter extends RecyclerView.ViewHolder {
 
         private Button deleteNoticeBtn;
-        private TextView deleteNoticeTitle;
+        private TextView deleteNoticeTitle,date,time;
         private PhotoView deleteNoticeImage;
 
         public NoticeViewAdapter(@NonNull View itemView) {
             super(itemView);
             deleteNoticeBtn = itemView.findViewById(R.id.deleteNoticeBtn);
             deleteNoticeTitle = itemView.findViewById(R.id.deleteNoticeTitle);
+            date = itemView.findViewById(R.id.date);
+            time = itemView.findViewById(R.id.time);
             deleteNoticeImage = (PhotoView) itemView.findViewById(R.id.deleteNoticeImage);
         }
     }
